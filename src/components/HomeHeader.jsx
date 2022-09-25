@@ -22,10 +22,11 @@ const HomeHeader = ({ update }) => {
 
     return (
         <header>
-            <h1>Movies DB</h1>
+            <h1><a href='/' className='header-link'>Movies DB</a></h1>
             <h1>{currentUser ? currentUser.email : ''}</h1>
+            {currentUser ? <a className='header-link' href='/update-profile'>Update Profile</a> : ''}
             <input className='search' type='text' placeholder='Search...' onChange={(e) => update(e.target.value)}></input>
-            <input type='button' value='Sign Out' onClick={(e) => onSignOut(e)} />
+            <input type='button' value='Sign Out' className='sign-out-button' onClick={(e) => onSignOut(e)} />
         </header>
     )
 }

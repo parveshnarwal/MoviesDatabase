@@ -12,15 +12,35 @@
     margin: 1rem;
     outline: none;
     border-radius: 10px;
+    cursor: pointer;
     border: none;
     padding: 3px;
     width: 100%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+.header-link {
+    color: white;
+    text-decoration: none;
+    font-size: 2rem;
+    background: gray;
+    border-radius: 30px;
+    display: inline-block;
+    padding: 10px;
+}
+
 .sign-up-form-container h1 {
     font-size: 3rem;
     color: whitesmoke;
+}
+
+.sign-out-button {
+    color: white;
+    font-size: 2rem;
+    background: orangered;
+    border-radius: 30px;
+    padding: 10px;
+    cursor: pointer;
 }
 
 .submit-button {

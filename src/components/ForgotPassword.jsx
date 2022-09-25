@@ -3,11 +3,11 @@ import '../../src/SignUp.css'
 import { useAuth } from '../AuthContext'
 import { useNavigate } from 'react-router-dom'
 
-const Login = () => {
+const ForgotPassword = () => {
     const emailRef = useRef()
     const passwordRef = useRef()
 
-    const { login, currentUser } = useAuth()
+    const { resetPwd } = useAuth()
 
     const navigate = useNavigate()
 
@@ -20,14 +20,14 @@ const Login = () => {
 
         try {
             setLoading(true)
-            await login(emailRef.current.value, passwordRef.current.value)
-            console.log('Log In Successfull')
+            await resetPwd(emailRef.current.value)
+            console.log('Reset Successfull')
             setError('')
-            navigate('/')
+            alert('Check your mailbox for further instructions')
         }
         catch (err) {
             console.log(err)
-            setError('Failed: Error occured while logging in.')
+            setError('Failed: Error occured while resetting password.')
             alert('LogIn Failed. Please retry')
         }
 
@@ -38,17 +38,15 @@ const Login = () => {
     return (
         <>
             <form className='sign-up-form-container' onSubmit={(e) => handleSubmit(e)}>
-                <h1>Log In</h1>
+                <h1>Forgot Password</h1>
                 <input type='text' placeholder='Email' ref={emailRef}></input>
-                <input type='password' placeholder='Password' ref={passwordRef}></input>
-                <input type='submit' value='Log In' className='submit-button' disabled={loading}></input>
+                <input type='submit' value='Reset Password' className='submit-button' disabled={loading}></input>
                 <div className='sign-up-page-footer'>
-                    <a href='/signup'>Register</a>
-                    <a href='/forgot-password'>Forgot Password?</a>
+                    <a href='/login'>Log In</a>
+                    <a href='https://google.com'>Need Help?</a>
                 </div>
             </form>
         </>
     )
 }
-
-export default Login
+export default ForgotPassword
