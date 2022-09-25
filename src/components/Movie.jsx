@@ -6,7 +6,7 @@ const Movie = ({ data }) => {
 
     return (
         <div className='movie'>
-            <a href={movieUrl} target='_blank'><img src={data.Poster} alt={data.Title} /></a>
+            <a href={movieUrl} target='_blank' rel='noreferrer'><img src={data.Poster} alt={data.Title} /></a>
             <div className="movie-info">
                 <h3>{data.Title}</h3>
                 <span>{data.Year}</span>
